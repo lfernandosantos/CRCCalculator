@@ -3,7 +3,7 @@
 //  Copyright © 2019 Luiz Fernando dos Santos. All rights reserved.
 //
 
-enum CRCType {
+public enum CRCType {
     case MODBUS
     case ARC
     case XMODEM
