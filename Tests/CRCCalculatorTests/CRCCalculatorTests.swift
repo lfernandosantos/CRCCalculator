@@ -2,14 +2,20 @@ import XCTest
 @testable import CRCCalculator
 
 final class CRCCalculatorTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(CRCCalculator().text, "Hello, World!")
+    
+    func testCRCArc() {
+        let aswer: UInt16 = 0xF82E
+        let str = "test"
+        let data = Data(str.utf8)
+        let bytes = [UInt8](data)
+        
+        let calculator = CRCCalc()
+        let bytesCalculated = calculator.calculate(type: .ARC, bytes: bytes)
+        
+        XCTAssertEqual(aswer, bytesCalculated)
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testCRCArc", testCRCArc),
     ]
 }
