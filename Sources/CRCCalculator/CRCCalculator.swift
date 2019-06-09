@@ -9,10 +9,10 @@ enum CRCType {
     case XMODEM
 }
 
-class CRCCalc {
+public class CRCCalc {
     
     
-    func calculate(type: CRCType, bytes: [UInt8]) -> UInt16? {
+    public func calculate(type: CRCType, bytes: [UInt8]) -> UInt16? {
         switch type {
         case .ARC:
             return crcArcModbus(bytes, type: .ARC)
