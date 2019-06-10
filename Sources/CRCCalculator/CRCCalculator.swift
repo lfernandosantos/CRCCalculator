@@ -9,8 +9,7 @@ public enum CRCType {
     case XMODEM
 }
 
-public class CRCCalc {
-    
+public struct CRCCalc {
     
     public func calculate(type: CRCType, bytes: [UInt8]) -> UInt16? {
         switch type {
