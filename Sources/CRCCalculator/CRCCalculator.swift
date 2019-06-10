@@ -11,14 +11,16 @@ public enum CRCType {
 
 public struct CRCCalc {
     
-    public func calculate(type: CRCType, bytes: [UInt8]) -> UInt16? {
+    private static let instance = CRCCalc()
+    
+    public static func calculate(type: CRCType, bytes: [UInt8]) -> UInt16? {
         switch type {
         case .ARC:
-            return crcArcModbus(bytes, type: .ARC)
+            return instance.crcArcModbus(bytes, type: .ARC)
         case .MODBUS:
-            return crcArcModbus(bytes, type: .MODBUS)
+            return instance.crcArcModbus(bytes, type: .MODBUS)
         case .XMODEM:
-            return crcXModem(bytes: bytes)
+            return instance.crcXModem(bytes: bytes)
         }
     }
     
